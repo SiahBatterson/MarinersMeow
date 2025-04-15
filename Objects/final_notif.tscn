@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://cc4cq46ydp085"]
+
+[ext_resource type="Texture2D" uid="uid://dpyftl8ul22w7" path="res://Art Aseets/UI/UI-Sheet.png" id="1_8b5w0"]
+[ext_resource type="Script" path="res://Areas/Notification.gd" id="2_4mefj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5my1n"]
+atlas = ExtResource("1_8b5w0")
+region = Rect2(4063.13, 151.653, 360.919, 191.444)
+
+[node name="Notification" type="TextureRect"]
+modulate = Color(1, 1, 1, 0)
+offset_left = 213.333
+offset_top = 23.3333
+offset_right = 573.333
+offset_bottom = 214.333
+texture = SubResource("AtlasTexture_5my1n")
+script = ExtResource("2_4mefj")
+timeout_time = 15
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 43.3333
+offset_top = 43.3333
+offset_right = 933.333
+offset_bottom = 397.333
+scale = Vector2(0.3, 0.3)
+theme_override_font_sizes/normal_font_size = 90
+bbcode_enabled = true
+text = "[center]You can craft clicking this button!"
+fit_content = true
+scroll_active = false
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]

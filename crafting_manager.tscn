@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cbjgjx35oc7v8"]
+
+[ext_resource type="Script" path="res://Scripts/CraftingManager.gd" id="1_seuc3"]
+
+[node name="CraftingManager" type="Node2D"]
+script = ExtResource("1_seuc3")

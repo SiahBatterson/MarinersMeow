@@ -1,0 +1,8 @@
+{
+  "Bob": {
+	"data": "res://Dialog System/characters/Bob/bob_data.json"
+  },
+  "MayorWhiskers": {
+	"data": "res://Dialog System/characters/MayorWhiskers/whiskers_data.json"
+  }
+}

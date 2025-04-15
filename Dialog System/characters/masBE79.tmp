@@ -1,0 +1,8 @@
+{
+  "Bob": {
+	"data": "res://characters/Bob/bob_data.json"
+  },
+  "MayorWhiskers": {
+	"data": "res://characters/MayorWhiskers/whiskers_data.json"
+  }
+}

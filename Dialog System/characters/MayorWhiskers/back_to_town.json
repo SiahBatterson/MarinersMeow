@@ -1,0 +1,26 @@
+{
+  "id": "dock_introduction",
+  "completed_flag": "dock_introduction_done",
+  "sequence": [
+	{
+	  "speaker": "MayorWhiskers",
+	  "text": "Welcome back to town!",
+	  "action_before": ""
+	},
+	{
+	  "speaker": "MayorWhiskers",
+	  "text": "While we were out on the water I notice something.",
+	  "action_before": ""
+	},
+	{
+	  "speaker": "MayorWhiskers",
+	  "text": "A leak in the old boat!",
+	  "action_before": ""
+	},
+	{
+	  "speaker": "MayorWhiskers",
+	  "text": "Dont worry though! We can get that fixed up down at the dock yards!",
+	  "action_before": "show:DockYards"
+	},
+  ]
+}

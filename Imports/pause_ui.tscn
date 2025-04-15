@@ -1,0 +1,89 @@
+[gd_scene load_steps=6 format=3 uid="uid://cppwdgforve7d"]
+
+[ext_resource type="Script" path="res://Scripts/saveandloadui.gd" id="1_ucyjq"]
+[ext_resource type="Texture2D" uid="uid://b2ugol13hjaix" path="res://Actual Art Assets/Boat/menu 3.png" id="2_kj7qy"]
+[ext_resource type="Shader" path="res://Gameplay Scenes/UPDATED_OUTLINE.gdshader" id="2_rmco2"]
+[ext_resource type="Texture2D" uid="uid://cid7plmgaoj0w" path="res://Actual Art Assets/Pngs/save.png" id="2_tud16"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ak6uh"]
+shader = ExtResource("2_rmco2")
+shader_parameter/outline_enabled = false
+shader_parameter/outline_color = Color(1, 1, 0.227451, 1)
+shader_parameter/outline_thickness = 10.0
+
+[node name="PauseUI" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_ucyjq")
+
+[node name="Save" type="TextureButton" parent="."]
+z_index = 2
+material = SubResource("ShaderMaterial_ak6uh")
+layout_mode = 0
+offset_left = 649.0
+offset_top = 278.0
+offset_right = 1629.0
+offset_bottom = 1260.0
+scale = Vector2(0.03, 0.03)
+texture_normal = ExtResource("2_tud16")
+stretch_mode = 5
+
+[node name="LoadButton" type="Button" parent="."]
+z_index = 2
+layout_mode = 0
+offset_left = 649.0
+offset_top = 330.0
+offset_right = 766.0
+offset_bottom = 404.0
+scale = Vector2(0.3, 0.3)
+theme_override_font_sizes/font_size = 50
+text = "Load"
+
+[node name="LineEdit" type="LineEdit" parent="."]
+z_index = 2
+layout_mode = 0
+offset_left = 511.0
+offset_top = 274.0
+offset_right = 645.0
+offset_bottom = 310.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_placeholder_color = Color(0.737193, 0.737193, 0.737193, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 0.152941)
+theme_override_colors/clear_button_color = Color(0, 0, 0, 1)
+theme_override_colors/clear_button_color_pressed = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 20
+placeholder_text = "Save Name..."
+max_length = 15
+expand_to_text_length = true
+clear_button_enabled = true
+select_all_on_focus = true
+caret_blink = true
+caret_force_displayed = true
+
+[node name="SaveDropdown" type="OptionButton" parent="."]
+z_index = 2
+layout_mode = 0
+offset_left = 512.0
+offset_top = 323.0
+offset_right = 646.0
+offset_bottom = 359.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(589, 308)
+texture = ExtResource("2_kj7qy")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 435.0
+offset_top = 177.0
+offset_right = 745.0
+offset_bottom = 217.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 65
+bbcode_enabled = true
+text = "[center]Save Menu"
+fit_content = true
+
+[connection signal="pressed" from="Save" to="." method="_on_SaveButton_pressed"]
+[connection signal="pressed" from="LoadButton" to="." method="_on_LoadButton_pressed"]

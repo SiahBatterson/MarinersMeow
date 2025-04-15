@@ -1,0 +1,43 @@
+[gd_scene load_steps=3 format=3 uid="uid://d03tvnufx4xbl"]
+
+[ext_resource type="Script" path="res://Dialog System/Questing/QuestEntry.gd" id="1_x6lpb"]
+[ext_resource type="Texture2D" uid="uid://bdvab7jal4ane" path="res://Art Aseets/UI/shop_item_background.png" id="2_31bhi"]
+
+[node name="QuestEntry" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_top = -1.0
+offset_right = 122.0
+offset_bottom = 61.0
+script = ExtResource("1_x6lpb")
+
+[node name="QuestName" type="Label" parent="."]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 4.0
+offset_right = 533.0
+offset_bottom = 128.0
+scale = Vector2(0.2, 0.2)
+theme_override_font_sizes/font_size = 90
+text = "Catch a fish"
+
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_direction = 2
+layout_mode = 0
+offset_top = 1.0
+offset_right = 32.0
+offset_bottom = 33.0
+texture_normal = ExtResource("2_31bhi")
+
+[node name="QuestDescription" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 22.0
+offset_right = 606.0
+offset_bottom = 242.0
+scale = Vector2(0.2, 0.2)
+theme_override_font_sizes/normal_font_size = 60
+text = "lkoremlkoremlkorem"
+
+[connection signal="mouse_entered" from="TextureButton" to="." method="_on_texture_button_mouse_entered"]
+[connection signal="mouse_exited" from="TextureButton" to="." method="_on_texture_button_mouse_exited"]

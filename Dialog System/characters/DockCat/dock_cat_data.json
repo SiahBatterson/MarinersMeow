@@ -1,0 +1,35 @@
+{
+  "icon": "portrait.png",
+  "dialog_sets": {
+	"dockcat_introduction": "dockcat_introduction.json",
+	"quest_1": "dialog_quest_1.json"
+  },
+  "friendship_level": 0,
+  "initial_state": {
+	"location": "town_square",
+	"available": true
+  },
+  "likes": [
+	"coffee",
+	"fishing_rod",
+	"sunflower"
+  ],
+  "dislikes": [
+	"trash",
+	"mud"
+  ],
+  "gift_history": [],
+  "assignable_quests": [
+	{
+	  "id": "bob_find_cat",
+	  "required_friendship": 2
+	},
+	{
+	  "id": "bob_secret_note",
+	  "required_friendship": 5
+	}
+  ],
+  "flags": {
+	"met_player": false
+  }
+}

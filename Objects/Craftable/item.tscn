@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://bbxxwqou65o28"]
+
+[ext_resource type="Script" path="res://Scripts/Item.gd" id="1_iowyc"]
+[ext_resource type="Texture2D" uid="uid://dksfb80mqoacn" path="res://Art Aseets/Josiahs Pixel Art/Shitrod.png" id="2_igowx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i7bho"]
+region = Rect2(0, 0, 162, 160)
+
+[node name="Item" type="Node2D"]
+script = ExtResource("1_iowyc")
+item_name = "Basic Sword"
+icon = SubResource("AtlasTexture_i7bho")
+value = 10
+crafting_recipe = {
+"Wood": 1
+}
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(3, 3)
+texture = ExtResource("2_igowx")

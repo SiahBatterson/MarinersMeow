@@ -1,0 +1,8 @@
+{
+  "DockCat": {
+	"data": "res://Dialog System/characters/DockCat/dock_cat_data.json"
+  },
+  "MayorWhiskers": {
+	"data": "res://Dialog System/characters/MayorWhiskers/whiskers_data.json"
+  }
+}

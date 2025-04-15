@@ -1,0 +1,63 @@
+[gd_scene load_steps=10 format=3 uid="uid://bf2oat4lfcfsm"]
+
+[ext_resource type="Script" path="res://Scripts/movement.gd" id="1_d8ynl"]
+[ext_resource type="Texture2D" uid="uid://cf5lg86o5kp1i" path="res://Imports/square.png" id="1_jqv6k"]
+[ext_resource type="PackedScene" uid="uid://cbwdrx07s22ba" path="res://Enviroment/basic_sword.tscn" id="2_u7xiu"]
+[ext_resource type="Script" path="res://Scripts/collision_test.gd" id="3_mhbvt"]
+[ext_resource type="PackedScene" uid="uid://dyqjhswn7raab" path="res://Enviroment/unique_sword.tscn" id="3_tukvn"]
+[ext_resource type="Script" path="res://Objects/Inventory.gd" id="4_8o14r"]
+[ext_resource type="Script" path="res://Objects/InventoryGridUI.gd" id="6_lnglt"]
+[ext_resource type="Texture2D" uid="uid://4pwb1lajg8ch" path="res://Placeholder/UI_PlaceHolder.jpg" id="7_5oxql"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f7p1s"]
+
+[node name="Player" type="CharacterBody2D"]
+scale = Vector2(0.5, 0.5)
+collision_layer = 3
+collision_mask = 3
+motion_mode = 1
+script = ExtResource("1_d8ynl")
+max_speed = 1200.0
+itemTest = ExtResource("2_u7xiu")
+itemTest2 = ExtResource("3_tukvn")
+staminaBurn = 5
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+scale = Vector2(100, 100)
+shape = SubResource("RectangleShape2D_f7p1s")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_jqv6k")
+
+[node name="CollisionTest" type="Area2D" parent="."]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("3_mhbvt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionTest"]
+scale = Vector2(100, 100)
+shape = SubResource("RectangleShape2D_f7p1s")
+
+[node name="Inventory_Manager" type="Node2D" parent="."]
+script = ExtResource("4_8o14r")
+
+[node name="InventoryUI" type="Control" parent="Inventory_Manager"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="InventoryGrid" type="GridContainer" parent="Inventory_Manager/InventoryUI"]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 124.0
+offset_right = 640.0
+offset_bottom = 648.0
+script = ExtResource("6_lnglt")
+
+[node name="TextureRect" type="TextureRect" parent="Inventory_Manager"]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(6, 6)
+texture = ExtResource("7_5oxql")
+
+[connection signal="area_entered" from="CollisionTest" to="CollisionTest" method="_on_area_entered"]
+[connection signal="body_entered" from="CollisionTest" to="CollisionTest" method="_on_body_entered"]

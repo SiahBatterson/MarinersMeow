@@ -1,0 +1,199 @@
+[gd_scene load_steps=15 format=3 uid="uid://g6ijln38fc2g"]
+
+[ext_resource type="Script" path="res://Shopkeeper.gd" id="1_tyu7o"]
+[ext_resource type="PackedScene" uid="uid://dsy0w02oo4l6i" path="res://shop_item.tscn" id="2_syrhd"]
+[ext_resource type="Script" path="res://Sound/KeyValuePair.gd" id="2_v5j8g"]
+[ext_resource type="Texture2D" uid="uid://dpyftl8ul22w7" path="res://Art Aseets/UI/UI-Sheet.png" id="3_vt4fn"]
+[ext_resource type="Texture2D" uid="uid://dk012l6xv6uao" path="res://Art Aseets/UI/BlackMediumCircleBoxWithBorder_27x27.png" id="5_qtxcs"]
+[ext_resource type="Texture2D" uid="uid://1nuka8ut5kj" path="res://Placeholder/wood_1.png" id="6_alrgd"]
+[ext_resource type="Texture2D" uid="uid://2knsrep1xtbe" path="res://Art Aseets/UI/ValueBar_128x16.png" id="7_k40o7"]
+[ext_resource type="Texture2D" uid="uid://crmd0tapnpwne" path="res://Art Aseets/UI/RectangleBox_96x96.png" id="8_ky7v3"]
+[ext_resource type="Script" path="res://Objects/SellWindow.gd" id="9_fhhk5"]
+[ext_resource type="PackedScene" uid="uid://q8lqams268g2" path="res://Objects/InventorySlot.tscn" id="10_pl14g"]
+[ext_resource type="Texture2D" uid="uid://muqhsb7b5i8r" path="res://Art Aseets/UI/BlackSmallCircleBox_19x19.png" id="11_kq7nl"]
+[ext_resource type="Texture2D" uid="uid://v1kmkbno6t5y" path="res://Placeholder/2D Pixel Dungeon Asset Pack/items and trap_animation/coin/coin_1.png" id="12_vt7qr"]
+
+[sub_resource type="Resource" id="Resource_qfdgg"]
+script = ExtResource("2_v5j8g")
+key = "Fiber"
+value = 1
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hy3fq"]
+atlas = ExtResource("3_vt4fn")
+region = Rect2(4501.38, -8.19757, 489.878, 512.663)
+
+[node name="Shopkeeper" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 759.0
+offset_top = 186.0
+offset_right = 759.0
+offset_bottom = 186.0
+mouse_filter = 2
+script = ExtResource("1_tyu7o")
+shopkeeperName = "Jeremy"
+shopkeeper_stock = Array[ExtResource("2_v5j8g")]([SubResource("Resource_qfdgg")])
+item_slot_scene = ExtResource("2_syrhd")
+has_sell_window = true
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 44.0
+offset_right = 840.0
+offset_bottom = 904.0
+scale = Vector2(0.5, 0.5)
+mouse_filter = 2
+columns = 3
+
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = -1
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+texture = SubResource("AtlasTexture_hy3fq")
+
+[node name="Profile" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 429.0
+offset_top = -52.0
+offset_right = 616.0
+offset_bottom = 135.0
+mouse_filter = 2
+texture = ExtResource("5_qtxcs")
+
+[node name="profilePhoto" type="TextureRect" parent="Profile"]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 22.0
+offset_right = 165.0
+offset_bottom = 162.0
+mouse_filter = 2
+texture = ExtResource("6_alrgd")
+stretch_mode = 4
+
+[node name="TextureRect" type="TextureRect" parent="Profile"]
+z_index = -1
+layout_mode = 0
+offset_left = -348.0
+offset_top = 538.0
+offset_right = -16.0
+offset_bottom = 623.0
+mouse_filter = 2
+texture = ExtResource("7_k40o7")
+
+[node name="TextureRect" type="TextureRect" parent="Profile/TextureRect"]
+z_index = -1
+layout_mode = 0
+offset_left = -17.0
+offset_right = 351.0
+offset_bottom = 92.0
+mouse_filter = 2
+texture = ExtResource("8_ky7v3")
+expand_mode = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Profile/TextureRect"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 29.0
+offset_right = 1485.0
+offset_bottom = 248.0
+scale = Vector2(0.2, 0.2)
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 65
+text = "HIHIHIHIHIIHIHIHIHIHIHIHIHIHIHIHIHI"
+fit_content = true
+scroll_active = false
+
+[node name="Sells For" type="TextureRect" parent="."]
+offset_left = 19.0
+offset_top = 444.0
+offset_right = 59.0
+offset_bottom = 484.0
+scale = Vector2(1.8, 1.8)
+texture = ExtResource("11_kq7nl")
+
+[node name="CoinCount2" type="TextureRect" parent="Sells For"]
+modulate = Color(1, 1, 1, 0.627451)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("12_vt7qr")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Sells For"]
+layout_mode = 0
+offset_left = 8.8889
+offset_top = 11.1111
+offset_right = 116.889
+offset_bottom = 99.1111
+scale = Vector2(0.2, 0.2)
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.0705882)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/normal_font_size = 60
+bbcode_enabled = true
+text = "[center]+1"
+scroll_active = false
+
+[node name="Has" type="TextureRect" parent="."]
+offset_left = 405.0
+offset_top = 447.0
+offset_right = 445.0
+offset_bottom = 487.0
+scale = Vector2(1.8, 1.8)
+texture = ExtResource("11_kq7nl")
+
+[node name="CoinCount2" type="TextureRect" parent="Has"]
+modulate = Color(1, 1, 1, 0.627451)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("12_vt7qr")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Has"]
+layout_mode = 0
+offset_left = 3.8889
+offset_top = 6.66668
+offset_right = 111.889
+offset_bottom = 94.6667
+scale = Vector2(0.3, 0.3)
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.0705882)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/normal_font_size = 60
+bbcode_enabled = true
+text = "[center]1"
+
+[node name="Sell Window" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect2" type="TextureRect" parent="Sell Window"]
+z_index = -2
+layout_mode = 0
+offset_left = -346.0
+offset_top = 47.0
+offset_right = 143.0
+offset_bottom = 559.0
+scale = Vector2(0.8, 0.8)
+mouse_filter = 2
+texture = SubResource("AtlasTexture_hy3fq")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Sell Window/TextureRect2"]
+layout_mode = 2
+offset_left = 41.0
+offset_top = 29.0
+offset_right = 634.0
+offset_bottom = 680.0
+scale = Vector2(0.7, 0.7)
+horizontal_scroll_mode = 0
+
+[node name="SellGrid" type="GridContainer" parent="Sell Window/TextureRect2/ScrollContainer"]
+z_index = 1
+layout_mode = 2
+columns = 3
+script = ExtResource("9_fhhk5")
+inventory_slot_scene = ExtResource("10_pl14g")

@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://cs5fj8mni8vfh"]
+
+[ext_resource type="Texture2D" uid="uid://dwopm5m17cgxi" path="res://Art Aseets/Josiahs Pixel Art/22253-6-school-of-fish-transparent-background-removebg-preview.png" id="1_cuqyp"]
+[ext_resource type="Script" path="res://Hotspot.gd" id="1_xwq24"]
+[ext_resource type="PackedScene" uid="uid://ljx3iy8qrq68" path="res://Objects/fish/snapper.tscn" id="3_x6vmq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lcrce"]
+size = Vector2(1296, 315)
+
+[node name="Hotspot" type="TextureRect"]
+offset_right = 598.0
+offset_bottom = 299.0
+mouse_filter = 2
+texture = ExtResource("1_cuqyp")
+flip_h = true
+script = ExtResource("1_xwq24")
+fish = [ExtResource("3_x6vmq")]
+density = 1.0
+
+[node name="Area2D" type="Area2D" parent="." groups=["Hotspot"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" groups=["Hotspot"]]
+position = Vector2(638, 147.5)
+shape = SubResource("RectangleShape2D_lcrce")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 705.0
+offset_top = 22.0
+offset_right = 1191.0
+offset_bottom = 265.0
+texture = ExtResource("1_cuqyp")
+flip_h = true
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

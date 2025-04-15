@@ -1,0 +1,72 @@
+[gd_scene load_steps=8 format=3 uid="uid://boxikh2lbifk8"]
+
+[ext_resource type="Texture2D" uid="uid://dpyftl8ul22w7" path="res://Art Aseets/UI/UI-Sheet.png" id="1_8eqn0"]
+[ext_resource type="Script" path="res://Objects/Fishing/FishingButton.gd" id="2_de5wn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nx55b"]
+atlas = ExtResource("1_8eqn0")
+region = Rect2(1148.03, 139.94, 193.967, 197.23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u4f8h"]
+atlas = ExtResource("1_8eqn0")
+region = Rect2(2168.81, 174.569, 141.57, 131.014)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hrrl8"]
+atlas = ExtResource("1_8eqn0")
+region = Rect2(4075.15, 158.923, 329.333, 171.487)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_816ah"]
+atlas = ExtResource("1_8eqn0")
+region = Rect2(2560, 136, 349, 173)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l6pgg"]
+atlas = ExtResource("1_8eqn0")
+region = Rect2(3130.06, 220.554, 220.002, 19.2772)
+
+[node name="FishingUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="TextureButton" parent="."]
+z_index = 2
+layout_mode = 0
+offset_left = 154.0
+offset_top = 27.0
+offset_right = 390.0
+offset_bottom = 228.0
+texture_normal = SubResource("AtlasTexture_nx55b")
+script = ExtResource("2_de5wn")
+difficulty = 10.0
+number = null
+
+[node name="Button" type="TextureButton" parent="Button"]
+modulate = Color(1, 0, 0, 1)
+layout_mode = 0
+offset_left = 22.0
+offset_top = 34.0
+offset_right = 163.0
+offset_bottom = 165.0
+mouse_filter = 2
+texture_normal = SubResource("AtlasTexture_u4f8h")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(1.5, 1.5)
+texture = SubResource("AtlasTexture_hrrl8")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+layout_mode = 0
+offset_left = 69.0
+offset_top = 233.0
+offset_right = 418.0
+offset_bottom = 406.0
+texture_under = SubResource("AtlasTexture_816ah")
+texture_progress = SubResource("AtlasTexture_l6pgg")
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]

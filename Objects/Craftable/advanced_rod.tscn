@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://uwqsroc5y7kh"]
+
+[ext_resource type="Script" path="res://Objects/Craftable/fishing_rod.gd" id="1_liupa"]
+[ext_resource type="Texture2D" uid="uid://dksfb80mqoacn" path="res://Art Aseets/Josiahs Pixel Art/Shitrod.png" id="2_rtpmi"]
+
+[node name="Advanced Rod" type="Node2D"]
+script = ExtResource("1_liupa")
+icon = ExtResource("2_rtpmi")
+value = 10
+weight = 15
+required_crafting_level = 5
+isCraftable = true
+crafting_recipe = {
+"Iron": 1,
+"Wood": 3
+}
+
+[node name="Sprite2D" type="TextureRect" parent="."]
+scale = Vector2(3, 3)
+texture = ExtResource("2_rtpmi")
+stretch_mode = 4

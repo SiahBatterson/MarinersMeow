@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://bs2i0e2qyoajf"]
+
+[ext_resource type="Script" path="res://Scripts/Item.gd" id="1_gx4x8"]
+[ext_resource type="Texture2D" path="res://Art Aseets/Royal_Sword-Sheet.png" id="2_dxrap"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i7bho"]
+atlas = ExtResource("2_dxrap")
+region = Rect2(0, 0, 162, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dxebq"]
+atlas = ExtResource("2_dxrap")
+region = Rect2(0, 0, 167, 160)
+
+[node name="Health Potion" type="Node2D"]
+script = ExtResource("1_gx4x8")
+item_name = "Basic Sword"
+icon = SubResource("AtlasTexture_i7bho")
+value = 10
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_dxebq")

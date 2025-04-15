@@ -1,0 +1,49 @@
+[gd_scene load_steps=6 format=3 uid="uid://cftdc0lxeypvc"]
+
+[ext_resource type="Script" path="res://Autoloads/InvVisiblity.gd" id="1_1pjyg"]
+[ext_resource type="Script" path="res://Scripts/InventoryGridUI.gd" id="2_64noa"]
+[ext_resource type="Script" path="res://Scripts/Tooltip.gd" id="3_gnrqg"]
+[ext_resource type="Texture2D" uid="uid://4pwb1lajg8ch" path="res://Placeholder/UI_PlaceHolder.jpg" id="4_u324k"]
+[ext_resource type="Script" path="res://Autoloads/CraftingRecipes.gd" id="5_d06sx"]
+
+[node name="Inventory_Manager" type="Node2D"]
+z_index = 2
+position = Vector2(-7732, -16588)
+scale = Vector2(20, 20)
+script = ExtResource("1_1pjyg")
+
+[node name="InventoryUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+mouse_filter = 2
+
+[node name="InventoryGrid" type="GridContainer" parent="InventoryUI"]
+layout_mode = 0
+offset_left = 122.0
+offset_top = 124.0
+offset_right = 646.0
+offset_bottom = 649.0
+mouse_filter = 2
+columns = 4
+script = ExtResource("2_64noa")
+
+[node name="Tooltip" type="RichTextLabel" parent="InventoryUI"]
+z_index = 1
+layout_mode = 0
+offset_right = 211.0
+offset_bottom = 55.0
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "10 coins"
+fit_content = true
+script = ExtResource("3_gnrqg")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(6, 6)
+mouse_filter = 2
+texture = ExtResource("4_u324k")
+
+[node name="CraftingRecipes" type="Node2D" parent="."]
+script = ExtResource("5_d06sx")

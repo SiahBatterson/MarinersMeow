@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://ljx3iy8qrq68"]
+
+[ext_resource type="Script" path="res://Scripts/Item.gd" id="1_osaf3"]
+[ext_resource type="Texture2D" uid="uid://cir4mimfjvcxn" path="res://Art Aseets/Fish/fish 2-export.png" id="2_dncyl"]
+
+[node name="Item" type="Node2D"]
+script = ExtResource("1_osaf3")
+item_name = "Snapper"
+icon = ExtResource("2_dncyl")
+value = 2
+weight = 15
+type = "fish"
+crafting_recipe = {
+"Wood": 1
+}
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(3, 3)
+texture = ExtResource("2_dncyl")

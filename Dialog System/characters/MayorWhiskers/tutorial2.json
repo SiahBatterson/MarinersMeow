@@ -1,0 +1,21 @@
+{
+  "id": "fihsingTutorial",
+  "completed_flag": "whiskers_quest_1_done",
+  "sequence": [
+	{
+	  "speaker": "MayorWhiskers",
+	  "text": "Wow! You caught a fish!",
+	  "action_before": "hide:FishingUI"
+	},
+	{
+	  "speaker": "MayorWhiskers",
+	  "text": "It might not be enough for the whole town but its a good start.",
+	  "action_before": ""
+	},
+	{
+	  "speaker": "MayorWhiskers",
+	  "text": "This boat looks... a bit rough however. Maybe we should headback!",
+	  "action_before": "show:HeadHome"
+	},
+  ]
+}

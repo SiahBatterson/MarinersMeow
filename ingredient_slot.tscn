@@ -1,0 +1,46 @@
+[gd_scene load_steps=4 format=3 uid="uid://tqul5utojru8"]
+
+[ext_resource type="Script" path="res://Scripts/ingredient_slot.gd" id="1_3ktqy"]
+[ext_resource type="Texture2D" uid="uid://dpyftl8ul22w7" path="res://Art Aseets/UI/UI-Sheet.png" id="2_rbkc3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_akgaq"]
+atlas = ExtResource("2_rbkc3")
+region = Rect2(646.804, 138.057, 208.863, 220.255)
+
+[node name="IngredientSlot" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.3, 0.3)
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_3ktqy")
+
+[node name="Icon" type="TextureRect" parent="."]
+z_index = 2
+layout_mode = 0
+offset_left = 36.6667
+offset_top = 38.3333
+offset_right = 188.667
+offset_bottom = 193.333
+scale = Vector2(0.6, 0.6)
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.8, 0.8)
+texture = SubResource("AtlasTexture_akgaq")
+
+[node name="Amount" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 116.667
+offset_right = 160.0
+offset_bottom = 158.667
+scale = Vector2(1.5, 1.5)
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "[center]1"
+fit_content = true

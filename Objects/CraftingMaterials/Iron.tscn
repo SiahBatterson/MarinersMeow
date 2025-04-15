@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://binegl2qyyqk5"]
+
+[ext_resource type="Script" path="res://Scripts/Item.gd" id="1_7vd5x"]
+[ext_resource type="Texture2D" uid="uid://beeups62ruijo" path="res://Art Aseets/Josiahs Pixel Art/nails.png" id="2_cf2sh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_du5g5"]
+atlas = ExtResource("2_cf2sh")
+region = Rect2(65.1304, 67.6481, 30.0364, 23.9212)
+
+[node name="Iron" type="Node2D"]
+script = ExtResource("1_7vd5x")
+item_name = "Fiber"
+icon = SubResource("AtlasTexture_du5g5")
+is_stackable = true
+value = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="."]

@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://gj7k6r3h7rg3"]
+
+[ext_resource type="Script" path="res://Scripts/Item.gd" id="1_3arua"]
+[ext_resource type="Texture2D" uid="uid://c3v8pghk402ey" path="res://Art Aseets/Josiahs Pixel Art/bait.png" id="3_kvx0t"]
+
+[node name="Bait" type="Node2D"]
+script = ExtResource("1_3arua")
+item_name = "Bait"
+icon = ExtResource("3_kvx0t")
+is_stackable = true
+value = 2
+required_crafting_level = 2
+isCraftable = true
+crafting_recipe = {
+"Processed_Fish": 1
+}
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(3, 3)
+texture = ExtResource("3_kvx0t")

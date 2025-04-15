@@ -1,0 +1,83 @@
+[gd_scene load_steps=10 format=3 uid="uid://ir18qvforgfb"]
+
+[ext_resource type="Script" path="res://Enviroment/CraftingBench.gd" id="1_1u0oh"]
+[ext_resource type="PackedScene" uid="uid://dp0o2oy6iktvb" path="res://crafting_button.tscn" id="2_boijt"]
+[ext_resource type="Texture2D" uid="uid://dpyftl8ul22w7" path="res://Art Aseets/UI-Sheet.png" id="3_d5wyj"]
+[ext_resource type="Script" path="res://ingredientslist.gd" id="4_ym3je"]
+[ext_resource type="PackedScene" uid="uid://tqul5utojru8" path="res://ingredient_slot.tscn" id="5_2yweh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p0ia2"]
+atlas = ExtResource("3_d5wyj")
+region = Rect2(4487.65, 0, 527.853, 499.772)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i38cv"]
+atlas = ExtResource("3_d5wyj")
+region = Rect2(4484.17, 0, 539.245, 508.23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0k4be"]
+atlas = ExtResource("3_d5wyj")
+region = Rect2(4028.49, 128.48, 429.118, 243.04)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y05m4"]
+size = Vector2(460, 490.001)
+
+[node name="CraftingBench" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 800.0
+offset_top = 704.0
+offset_right = 800.0
+offset_bottom = 704.0
+scale = Vector2(0.1, 0.1)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_1u0oh")
+craftingButton = ExtResource("2_boijt")
+metadata/_edit_use_anchors_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_p0ia2")
+
+[node name="UI" type="Node2D" parent="."]
+z_index = 2
+
+[node name="UI" type="Sprite2D" parent="UI"]
+position = Vector2(-879.999, 0.000610352)
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_i38cv")
+
+[node name="VBoxContainer" type="GridContainer" parent="UI"]
+offset_left = -1540.0
+offset_top = -690.0
+offset_right = 289.0
+offset_bottom = 1253.0
+scale = Vector2(0.7, 0.7)
+columns = 3
+
+[node name="Info Panel" type="TextureRect" parent="UI"]
+offset_left = -2340.0
+offset_top = -800.0
+offset_right = -1911.0
+offset_bottom = -557.0
+scale = Vector2(1.905, 1.905)
+texture = SubResource("AtlasTexture_0k4be")
+script = ExtResource("4_ym3je")
+ingredient_slot_scene = ExtResource("5_2yweh")
+
+[node name="Ingredients" type="GridContainer" parent="UI/Info Panel"]
+layout_mode = 0
+offset_left = 68.0
+offset_top = 42.0
+offset_right = 614.0
+offset_bottom = 315.0
+scale = Vector2(0.5, 0.5)
+columns = 3
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0.000488281, -4.99854)
+shape = SubResource("RectangleShape2D_y05m4")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

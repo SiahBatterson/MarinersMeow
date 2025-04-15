@@ -1,0 +1,11 @@
+{
+  "id": "bob_quest_1",
+  "completed_flag": "bob_quest_1_done",
+  "sequence": [
+	{
+	  "speaker": "Bob",
+	  "text": "Have you seen my cat?",
+	  "action_before": "start_quest:bob_find_cat"
+	}
+  ]
+}

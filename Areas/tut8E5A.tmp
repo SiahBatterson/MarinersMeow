@@ -1,0 +1,124 @@
+[gd_scene load_steps=17 format=3 uid="uid://ba0qr81dhnbyh"]
+
+[ext_resource type="Script" path="res://Areas/tutorial.gd" id="1_e7ojy"]
+[ext_resource type="PackedScene" uid="uid://cqpnr6b450pt2" path="res://Objects/Entities/boat.tscn" id="2_l5agp"]
+[ext_resource type="Shader" path="res://Shaders/TextureShader.gdshader" id="3_w2bx2"]
+[ext_resource type="Texture2D" uid="uid://bcv2o3kkdq6vm" path="res://Art Aseets/Final_Scenes/stormy sky 1-export.png" id="4_k0uni"]
+[ext_resource type="Texture2D" uid="uid://b23f8wuauj2h5" path="res://Art Aseets/Final_Scenes/stormy sky 2-export.png" id="5_254u7"]
+[ext_resource type="Texture2D" uid="uid://buhcnj3lm3nqu" path="res://Shaders/perlin-noise-texture.png" id="6_tq8jn"]
+[ext_resource type="Texture2D" uid="uid://lho38ew540a0" path="res://Art Aseets/Final_Scenes/Stormy/stormy sky.png" id="7_8ejay"]
+[ext_resource type="Texture2D" uid="uid://c6jrlfbw85bd1" path="res://Art Aseets/Final_Scenes/Stormy/stormy water fg.png" id="8_kv3el"]
+[ext_resource type="Script" path="res://Areas/SignalShaderController.gd" id="8_vqkm7"]
+[ext_resource type="Texture2D" uid="uid://b8ul5hym73btf" path="res://Art Aseets/Final_Scenes/Stormy/stormy water.png" id="9_8cwac"]
+[ext_resource type="Texture2D" uid="uid://bu3t580y8kyhj" path="res://Shaders/seamless_perlin_noise_texture.png" id="10_2b7dt"]
+[ext_resource type="Script" path="res://Scripts/water.gd" id="12_dgdkb"]
+[ext_resource type="PackedScene" uid="uid://cs5fj8mni8vfh" path="res://Objects/Fishing/Hotspot/hotspot.tscn" id="13_p7dl4"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_r7r30"]
+shader = ExtResource("3_w2bx2")
+shader_parameter/fog_offset = Vector2(0, 0)
+shader_parameter/image_offset = Vector2(0, 0)
+shader_parameter/density = 0.7
+shader_parameter/speed = Vector2(0.45, 0)
+shader_parameter/image_speed = Vector2(0.15, 0)
+shader_parameter/blend_factor = 0.612
+shader_parameter/y_threshold = 0.0
+shader_parameter/fade_strength = 1.585
+shader_parameter/y_cutoff = 0.0
+shader_parameter/cutoff_fade_strength = 0.315
+shader_parameter/image_y_cutoff = 0.0
+shader_parameter/image_cutoff_fade_strength = 0.1
+shader_parameter/fog_opacity = 0.798
+shader_parameter/random_factor = 0.1
+shader_parameter/noise_texture = ExtResource("6_tq8jn")
+shader_parameter/background_image1 = ExtResource("4_k0uni")
+shader_parameter/background_image2 = ExtResource("5_254u7")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lvpqk"]
+shader = ExtResource("3_w2bx2")
+shader_parameter/fog_offset = Vector2(0, 0)
+shader_parameter/image_offset = Vector2(0, 0)
+shader_parameter/density = 0.7
+shader_parameter/speed = Vector2(0.1, 0)
+shader_parameter/image_speed = Vector2(0.041, 0)
+shader_parameter/blend_factor = 0.601
+shader_parameter/y_threshold = 0.3
+shader_parameter/fade_strength = 1.0
+shader_parameter/y_cutoff = 0.1
+shader_parameter/cutoff_fade_strength = 0.044
+shader_parameter/image_y_cutoff = 0.1
+shader_parameter/image_cutoff_fade_strength = 0.1
+shader_parameter/fog_opacity = 0.0
+shader_parameter/random_factor = 0.05
+shader_parameter/noise_texture = ExtResource("10_2b7dt")
+shader_parameter/background_image1 = ExtResource("8_kv3el")
+shader_parameter/background_image2 = ExtResource("9_8cwac")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4xch7"]
+shader = ExtResource("3_w2bx2")
+shader_parameter/fog_offset = Vector2(0, 0)
+shader_parameter/image_offset = Vector2(0, 0)
+shader_parameter/density = 0.2
+shader_parameter/speed = Vector2(0.01, 0)
+shader_parameter/image_speed = Vector2(0.04, 0)
+shader_parameter/blend_factor = 0.691
+shader_parameter/y_threshold = 0.3
+shader_parameter/fade_strength = 1.0
+shader_parameter/y_cutoff = 0.1
+shader_parameter/cutoff_fade_strength = 0.0
+shader_parameter/image_y_cutoff = 0.1
+shader_parameter/image_cutoff_fade_strength = 0.37
+shader_parameter/fog_opacity = 0.337
+shader_parameter/random_factor = 0.05
+shader_parameter/noise_texture = ExtResource("10_2b7dt")
+shader_parameter/background_image1 = ExtResource("9_8cwac")
+shader_parameter/background_image2 = ExtResource("9_8cwac")
+
+[node name="Tutorial" type="Node2D"]
+script = ExtResource("1_e7ojy")
+
+[node name="Boat" parent="." instance=ExtResource("2_l5agp")]
+position = Vector2(620, 851)
+
+[node name="Sky" type="TextureRect" parent="."]
+modulate = Color(0.180005, 0.180005, 0.180005, 1)
+self_modulate = Color(0.241156, 0.241156, 0.241156, 1)
+z_index = -2
+material = SubResource("ShaderMaterial_r7r30")
+offset_left = -80.0
+offset_top = -61.0
+offset_right = 1958.0
+offset_bottom = 692.0
+texture = ExtResource("7_8ejay")
+script = ExtResource("8_vqkm7")
+
+[node name="Water" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_lvpqk")
+offset_left = -126.0
+offset_top = 868.0
+offset_right = 1372.0
+offset_bottom = 1212.0
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("8_kv3el")
+script = ExtResource("8_vqkm7")
+
+[node name="DeepWater" type="TextureRect" parent="."]
+z_index = -2
+material = SubResource("ShaderMaterial_4xch7")
+offset_left = -280.0
+offset_top = 539.0
+offset_right = 2152.0
+offset_bottom = 1092.0
+texture = ExtResource("9_8cwac")
+script = ExtResource("8_vqkm7")
+
+[node name="Hotspot Spawner" type="Node2D" parent="."]
+modulate = Color(0, 0.810465, 0.504132, 1)
+z_index = 2
+position = Vector2(1651, 768)
+script = ExtResource("12_dgdkb")
+speed = 150
+reset_modifier = 4000.0
+start_x_modifier = 0.0
+hotspotCollections = [ExtResource("13_p7dl4")]
+upperSpawnTime = 30

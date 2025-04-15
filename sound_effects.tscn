@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bkobw8pqotr55"]
+
+[ext_resource type="AudioStream" uid="uid://bcorcc7mcitdx" path="res://Sound/random.wav" id="1_o2taj"]
+
+[node name="SoundEffects" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_o2taj")

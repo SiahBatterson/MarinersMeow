@@ -1,0 +1,270 @@
+[gd_scene load_steps=28 format=3 uid="uid://ba0qr81dhnbyh"]
+
+[ext_resource type="Script" path="res://Areas/tutorial.gd" id="1_e7ojy"]
+[ext_resource type="PackedScene" uid="uid://cqpnr6b450pt2" path="res://Objects/Entities/boat.tscn" id="2_l5agp"]
+[ext_resource type="Shader" path="res://Areas/sky.gdshader" id="3_dgesj"]
+[ext_resource type="Shader" path="res://Shaders/TextureShader.gdshader" id="3_w2bx2"]
+[ext_resource type="Texture2D" uid="uid://bcv2o3kkdq6vm" path="res://Art Aseets/Final_Scenes/stormy sky 1-export.png" id="4_k0uni"]
+[ext_resource type="Texture2D" uid="uid://b23f8wuauj2h5" path="res://Art Aseets/Final_Scenes/stormy sky 2-export.png" id="5_254u7"]
+[ext_resource type="Texture2D" uid="uid://buhcnj3lm3nqu" path="res://Shaders/perlin-noise-texture.png" id="6_tq8jn"]
+[ext_resource type="Texture2D" uid="uid://lho38ew540a0" path="res://Art Aseets/Final_Scenes/Stormy/stormy sky.png" id="7_8ejay"]
+[ext_resource type="Texture2D" uid="uid://c6jrlfbw85bd1" path="res://Art Aseets/Final_Scenes/Stormy/stormy water fg.png" id="8_kv3el"]
+[ext_resource type="Script" path="res://Areas/SignalShaderController.gd" id="8_vqkm7"]
+[ext_resource type="Texture2D" uid="uid://b8ul5hym73btf" path="res://Art Aseets/Final_Scenes/Stormy/stormy water.png" id="9_8cwac"]
+[ext_resource type="Texture2D" uid="uid://bu3t580y8kyhj" path="res://Shaders/seamless_perlin_noise_texture.png" id="10_2b7dt"]
+[ext_resource type="Shader" path="res://Areas/watersh.gdshader" id="11_7xoni"]
+[ext_resource type="Texture2D" uid="uid://y68k50ybt557" path="res://Art Aseets/Josiahs Pixel Art/2.png" id="11_vphma"]
+[ext_resource type="Script" path="res://Scripts/water.gd" id="12_dgdkb"]
+[ext_resource type="PackedScene" uid="uid://cs5fj8mni8vfh" path="res://Objects/Fishing/Hotspot/hotspot.tscn" id="13_p7dl4"]
+[ext_resource type="Script" path="res://Areas/Button.gd" id="14_7m1sx"]
+[ext_resource type="Shader" path="res://Areas/watersh2.gdshader" id="14_qdl6c"]
+[ext_resource type="PackedScene" uid="uid://cc4cq46ydp085" path="res://Objects/final_notif.tscn" id="15_7dxwh"]
+[ext_resource type="Texture2D" uid="uid://o2cbnqw5q1cs" path="res://Art Aseets/Josiahs Pixel Art/water.svg" id="15_ie7u5"]
+[ext_resource type="PackedScene" uid="uid://cfg0k0vo8wunm" path="res://ui_hud.tscn" id="16_0d71t"]
+[ext_resource type="PackedScene" uid="uid://bd1rc4uds6mw0" path="res://Dialog System/dialog_ui.tscn" id="17_fjkkc"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6x26f"]
+shader = ExtResource("3_dgesj")
+shader_parameter/waterColor = Color(0.129559, 0.129558, 0.129558, 0.886275)
+shader_parameter/colorCorection = 0.92
+shader_parameter/waterNoise = ExtResource("6_tq8jn")
+shader_parameter/waterDistortionNoise = ExtResource("6_tq8jn")
+shader_parameter/distortionForce = 0.048
+shader_parameter/WDBrightness = 3.0
+shader_parameter/WDFreq = 0.45
+shader_parameter/WDSize = 0.75
+shader_parameter/WDSpeed = 20.0
+shader_parameter/tiling = Vector2(1.615, 0.92)
+shader_parameter/offSetSpeed = Vector2(0.16, 0.075)
+shader_parameter/backGroundDirX = 0.01
+shader_parameter/backGroundDirY = 0.01
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_r7r30"]
+shader = ExtResource("3_w2bx2")
+shader_parameter/fog_offset = Vector2(0, 0)
+shader_parameter/image_offset = Vector2(0, 0)
+shader_parameter/density = 0.7
+shader_parameter/speed = Vector2(2.035, 0)
+shader_parameter/image_speed = Vector2(0.15, 0)
+shader_parameter/blend_factor = 0.612
+shader_parameter/y_threshold = 0.0
+shader_parameter/fade_strength = 1.585
+shader_parameter/y_cutoff = 0.0
+shader_parameter/cutoff_fade_strength = 0.315
+shader_parameter/image_y_cutoff = 0.0
+shader_parameter/image_cutoff_fade_strength = 0.1
+shader_parameter/fog_opacity = 1.0
+shader_parameter/random_factor = 0.1
+shader_parameter/noise_texture = ExtResource("6_tq8jn")
+shader_parameter/background_image1 = ExtResource("4_k0uni")
+shader_parameter/background_image2 = ExtResource("5_254u7")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lvpqk"]
+shader = ExtResource("3_w2bx2")
+shader_parameter/fog_offset = Vector2(0.94, 0.4)
+shader_parameter/image_offset = Vector2(0.35, 0)
+shader_parameter/density = 0.7
+shader_parameter/speed = Vector2(3.72, 0)
+shader_parameter/image_speed = Vector2(0.041, 0)
+shader_parameter/blend_factor = 0.0
+shader_parameter/y_threshold = 4.15
+shader_parameter/fade_strength = 1.0
+shader_parameter/y_cutoff = 2.56
+shader_parameter/cutoff_fade_strength = 0.044
+shader_parameter/image_y_cutoff = -0.025
+shader_parameter/image_cutoff_fade_strength = 0.1
+shader_parameter/fog_opacity = 1.0
+shader_parameter/random_factor = 0.05
+shader_parameter/noise_texture = ExtResource("6_tq8jn")
+shader_parameter/background_image1 = ExtResource("9_8cwac")
+shader_parameter/background_image2 = ExtResource("8_kv3el")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kpask"]
+shader = ExtResource("11_7xoni")
+shader_parameter/waterColor = Color(0.054902, 0, 0.698039, 0.360784)
+shader_parameter/colorCorection = 0.39
+shader_parameter/waterNoise = ExtResource("6_tq8jn")
+shader_parameter/waterDistortionNoise = ExtResource("10_2b7dt")
+shader_parameter/distortionForce = 0.061
+shader_parameter/WDBrightness = 1.75
+shader_parameter/WDFreq = 0.2
+shader_parameter/WDSize = 0.6
+shader_parameter/WDSpeed = 7.4
+shader_parameter/tiling = Vector2(3, 1)
+shader_parameter/offSetSpeed = Vector2(0.5, 0.01)
+shader_parameter/backGroundDirX = 0.031
+shader_parameter/backGroundDirY = -0.028
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ltwwm"]
+shader = ExtResource("14_qdl6c")
+shader_parameter/waterColor = Color(0.0627451, 0.168627, 0.384314, 0.443137)
+shader_parameter/colorCorection = 0.7
+shader_parameter/waterNoise = ExtResource("10_2b7dt")
+shader_parameter/waterDistortionNoise = ExtResource("6_tq8jn")
+shader_parameter/distortionForce = 0.048
+shader_parameter/WDBrightness = 0.5
+shader_parameter/WDFreq = 0.55
+shader_parameter/WDSize = 1.0
+shader_parameter/WDSpeed = 15.75
+shader_parameter/tiling = Vector2(1.5, 1)
+shader_parameter/offSetSpeed = Vector2(0.2, 0)
+shader_parameter/backGroundDirX = 0.028
+shader_parameter/backGroundDirY = 0.01
+
+[node name="Tutorial" type="Node2D"]
+script = ExtResource("1_e7ojy")
+
+[node name="Boat" parent="." instance=ExtResource("2_l5agp")]
+z_index = 2
+position = Vector2(620, 851)
+
+[node name="Sky" type="TextureRect" parent="."]
+modulate = Color(0.180005, 0.180005, 0.180005, 1)
+self_modulate = Color(0.241156, 0.241156, 0.241156, 1)
+z_index = -6
+material = SubResource("ShaderMaterial_6x26f")
+offset_left = -57.0
+offset_top = -59.0
+offset_right = 1981.0
+offset_bottom = 694.0
+mouse_filter = 2
+texture = ExtResource("7_8ejay")
+script = ExtResource("8_vqkm7")
+
+[node name="Sky2" type="TextureRect" parent="."]
+modulate = Color(0.180005, 0.180005, 0.180005, 1)
+self_modulate = Color(0.241156, 0.241156, 0.241156, 1)
+z_index = -6
+material = SubResource("ShaderMaterial_r7r30")
+offset_left = -57.0
+offset_top = -59.0
+offset_right = 1981.0
+offset_bottom = 694.0
+mouse_filter = 2
+texture = ExtResource("7_8ejay")
+script = ExtResource("8_vqkm7")
+
+[node name="Water" type="TextureRect" parent="."]
+modulate = Color(0.909804, 0.909804, 0.909804, 0.152941)
+self_modulate = Color(1, 1, 1, 0)
+z_index = -1
+material = SubResource("ShaderMaterial_lvpqk")
+offset_left = -161.0
+offset_top = 930.0
+offset_right = 1337.0
+offset_bottom = 1274.0
+scale = Vector2(1.5, 1.5)
+mouse_filter = 2
+texture = ExtResource("9_8cwac")
+script = ExtResource("8_vqkm7")
+
+[node name="Water2" type="TextureRect" parent="."]
+modulate = Color(0.909804, 0.909804, 0.909804, 1)
+z_index = -1
+material = SubResource("ShaderMaterial_lvpqk")
+offset_left = -147.0
+offset_top = 511.0
+offset_right = 1351.0
+offset_bottom = 855.0
+scale = Vector2(1.5, 1.5)
+mouse_filter = 2
+texture = ExtResource("9_8cwac")
+script = ExtResource("8_vqkm7")
+
+[node name="DeepWater" type="TextureRect" parent="."]
+modulate = Color(0.909804, 0.909804, 0.909804, 1)
+z_index = 1
+material = SubResource("ShaderMaterial_kpask")
+offset_left = -255.0
+offset_top = 508.0
+offset_right = 2362.0
+offset_bottom = 1103.0
+mouse_filter = 2
+texture = ExtResource("11_vphma")
+script = ExtResource("8_vqkm7")
+
+[node name="DeepWater2" type="TextureRect" parent="."]
+modulate = Color(0.909804, 0.909804, 0.909804, 1)
+z_index = 1
+material = SubResource("ShaderMaterial_ltwwm")
+offset_left = -255.0
+offset_top = 508.0
+offset_right = 2362.0
+offset_bottom = 1103.0
+mouse_filter = 2
+texture = ExtResource("11_vphma")
+script = ExtResource("8_vqkm7")
+
+[node name="DeepWater3" type="TextureRect" parent="."]
+modulate = Color(0.909804, 0.909804, 0.909804, 1)
+z_index = 1
+material = SubResource("ShaderMaterial_kpask")
+offset_left = -286.0
+offset_top = 1103.0
+offset_right = 2331.0
+offset_bottom = 1698.0
+mouse_filter = 2
+texture = ExtResource("11_vphma")
+script = ExtResource("8_vqkm7")
+
+[node name="DeepWater4" type="TextureRect" parent="."]
+modulate = Color(0.909804, 0.909804, 0.909804, 1)
+z_index = 1
+material = SubResource("ShaderMaterial_ltwwm")
+offset_left = -286.0
+offset_top = 1103.0
+offset_right = 2331.0
+offset_bottom = 1698.0
+mouse_filter = 2
+texture = ExtResource("11_vphma")
+script = ExtResource("8_vqkm7")
+
+[node name="Hotspot Spawner" type="Node2D" parent="."]
+modulate = Color(0, 0.810465, 0.504132, 1)
+position = Vector2(1651, 768)
+script = ExtResource("12_dgdkb")
+reset_modifier = 4000.0
+start_x_modifier = 0.0
+hotspotCollections = [ExtResource("13_p7dl4")]
+upperSpawnTime = 70
+
+[node name="HeadHome" type="Button" parent="."]
+visible = false
+offset_left = 16.0
+offset_top = 10.0
+offset_right = 71.0
+offset_bottom = 41.0
+scale = Vector2(3, 3)
+text = "Island"
+script = ExtResource("14_7m1sx")
+
+[node name="Notification" parent="HeadHome" instance=ExtResource("15_7dxwh")]
+modulate = Color(1, 1, 1, 1)
+layout_mode = 0
+offset_left = 56.3334
+offset_top = -1.33333
+offset_right = 416.333
+offset_bottom = 189.667
+scale = Vector2(0.2, 0.2)
+replacement_text = "Click here to head home!"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+z_index = -12
+position = Vector2(952, 1084)
+scale = Vector2(3.5, 3.5)
+texture = ExtResource("15_ie7u5")
+
+[node name="UI_HUD" parent="." instance=ExtResource("16_0d71t")]
+offset_left = 40.0
+offset_top = 180.0
+offset_right = 268.0
+offset_bottom = 912.0
+
+[node name="DialogUI" parent="." instance=ExtResource("17_fjkkc")]
+visible = false
+z_index = 2
+position = Vector2(1668, 956)
+talking_speed = 0.06
+
+[connection signal="pressed" from="HeadHome" to="HeadHome" method="_on_pressed"]

@@ -1,0 +1,74 @@
+[gd_scene load_steps=8 format=3 uid="uid://dsjv7ieru54dl"]
+
+[ext_resource type="Script" path="res://Enviroment/CraftingHUD.gd" id="1_ekpai"]
+[ext_resource type="Texture2D" uid="uid://dpyftl8ul22w7" path="res://Art Aseets/UI/UI-Sheet.png" id="2_1djep"]
+[ext_resource type="Script" path="res://Scripts/ingredientslist.gd" id="4_bvub4"]
+[ext_resource type="PackedScene" uid="uid://tqul5utojru8" path="res://ingredient_slot.tscn" id="5_lx6fx"]
+[ext_resource type="Script" path="res://UI_Builder.gd" id="5_q0ckr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qx53u"]
+atlas = ExtResource("2_1djep")
+region = Rect2(4515.88, -1.42192, 468.659, 499.258)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hw63v"]
+atlas = ExtResource("2_1djep")
+region = Rect2(4070.14, 153.163, 340.346, 179.333)
+
+[node name="CraftingUI" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_ekpai")
+
+[node name="UI" type="Control" parent="."]
+z_index = 2
+anchors_preset = 0
+script = ExtResource("5_q0ckr")
+
+[node name="UI" type="Sprite2D" parent="UI"]
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_qx53u")
+
+[node name="VBoxContainer" type="GridContainer" parent="UI"]
+offset_left = -610.0
+offset_top = -660.0
+offset_right = 600.0
+offset_bottom = 660.0
+theme_override_constants/h_separation = 1
+theme_override_constants/v_separation = 1
+columns = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Info Panel" type="TextureRect" parent="UI"]
+offset_left = -420.0
+offset_top = -1328.0
+offset_right = 9.0
+offset_bottom = -1085.0
+scale = Vector2(1.905, 1.905)
+texture = SubResource("AtlasTexture_hw63v")
+script = ExtResource("4_bvub4")
+ingredient_slot_scene = ExtResource("5_lx6fx")
+metadata/_edit_use_anchors_ = true
+
+[node name="Ingredients" type="GridContainer" parent="UI/Info Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.0655128
+anchor_top = -0.0573324
+anchor_right = -0.0655128
+anchor_bottom = -0.0573324
+offset_left = 68.0
+offset_top = 68.0
+offset_right = 635.0
+offset_bottom = 289.0
+scale = Vector2(0.6, 0.6)
+columns = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="Name" type="RichTextLabel" parent="UI/Info Panel"]
+layout_mode = 0
+offset_left = 65.0
+offset_top = 8.0
+offset_right = 363.0
+offset_bottom = 60.0
+theme_override_font_sizes/normal_font_size = 30
+text = "Name"

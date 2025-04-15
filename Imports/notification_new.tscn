@@ -1,0 +1,58 @@
+[gd_scene load_steps=5 format=3 uid="uid://fkrlgxcotnqw"]
+
+[ext_resource type="Texture2D" uid="uid://cvux0nhwe8oa7" path="res://Art Aseets/UI/CornerKnot_14x14.png" id="1_3eapy"]
+[ext_resource type="Script" path="res://Imports/Notification.gd" id="1_jwjgc"]
+[ext_resource type="Texture2D" uid="uid://dpyftl8ul22w7" path="res://Art Aseets/UI/UI-Sheet.png" id="1_xvfyn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o4jct"]
+atlas = ExtResource("1_xvfyn")
+region = Rect2(4078.66, 148.308, 323.682, 184.349)
+
+[node name="Notification" type="Control"]
+z_index = 7
+z_as_relative = false
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 3
+anchors_preset = 0
+offset_left = 217.0
+offset_top = 78.0
+offset_right = 217.0
+offset_bottom = 78.0
+scale = Vector2(0.6, 0.6)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+script = ExtResource("1_jwjgc")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = -101.667
+offset_top = -33.3333
+offset_right = 556.333
+offset_bottom = 198.667
+scale = Vector2(0.3, 0.3)
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 85
+bbcode_enabled = true
+text = "[center]You can craft over here!"
+fit_content = true
+
+[node name="Exit_Button" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 91.6667
+offset_top = -68.3333
+offset_right = 107.667
+offset_bottom = -52.3333
+scale = Vector2(4, 4)
+texture_normal = ExtResource("1_3eapy")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -1
+texture = SubResource("AtlasTexture_o4jct")
+
+[connection signal="pressed" from="Exit_Button" to="." method="_on_exit_button_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

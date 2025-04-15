@@ -1,0 +1,52 @@
+[gd_scene load_steps=5 format=3 uid="uid://wx6mgyaahvmk"]
+
+[ext_resource type="Texture2D" uid="uid://6f1x081t7u15" path="res://Art Aseets/Josiahs Pixel Art/item_notif_background.png" id="1_l06g7"]
+[ext_resource type="Texture2D" uid="uid://bc3mw3mnqpr27" path="res://Art Aseets/Josiahs Pixel Art/EXLAM.jpg" id="2_elsq2"]
+[ext_resource type="Script" path="res://Objects/inventory_notification.gd" id="2_lqrtk"]
+[ext_resource type="AudioStream" uid="uid://dclo1l5aj75q" path="res://Art Aseets/UI/pickupCoin.wav" id="4_ix7ks"]
+
+[node name="Inventory_Notification" type="TextureButton"]
+custom_minimum_size = Vector2(64, 64)
+scale = Vector2(1.9, 1.9)
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource("1_l06g7")
+script = ExtResource("2_lqrtk")
+
+[node name="Item_Texture" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 30.0
+offset_bottom = 30.0
+mouse_filter = 2
+stretch_mode = 5
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -15.0
+offset_top = 9.0
+offset_right = 17.0
+offset_bottom = 41.0
+scale = Vector2(0.4, 0.4)
+mouse_filter = 2
+texture = ExtResource("2_elsq2")
+stretch_mode = 4
+
+[node name="Amount" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 17.8571
+offset_top = 17.8571
+offset_right = 135.857
+offset_bottom = 110.857
+scale = Vector2(0.18, 0.18)
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 60
+text = "x0"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_ix7ks")
+volume_db = 1.0
+pitch_scale = 1.1
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

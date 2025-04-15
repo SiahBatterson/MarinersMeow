@@ -1,0 +1,37 @@
+{
+  "quests": [
+	{
+	  "id": "get_a_fish",
+	  "giver": "Mayor Whiskers",
+	  "description": "Catch a snapper!",
+	  "dialog_set": "Wow thanks for getting that fish",
+	  "conditions": [ { "type": "has_item", "item": "Snapper", "quantity": 1 } ],
+	  "rewards": {
+		"items": [ {} ],
+		"money": 10
+	  }
+	},
+	{
+	  "id": "catch_fish",
+	  "giver": "Fisher Tom",
+	  "description": "Catch 3 snappers for Fisher Tom.",
+	  "dialog_set": "fish_reward_dialog",
+	  "conditions": [ { "type": "has_item", "item": "Snapper", "quantity": 3 } ],
+	  "rewards": {
+		"items": [ { "item": "Bait", "quantity": 5 } ],
+		"money": 50
+	  }
+	},
+	{
+	  "id": "find_herbs",
+	  "giver": "Herbalist Lina",
+	  "description": "Catch 3 snappers for Fisher Tom.", 
+	  "dialog_set": "herb_reward_dialog",
+	  "conditions": [ { "type": "has_item", "item": "Herb", "quantity": 10 } ],
+	  "rewards": {
+		"items": [ { "item": "Health Potion", "quantity": 2 } ],
+		"money": 75
+	  }
+	}
+  ]
+}

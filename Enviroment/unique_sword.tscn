@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://dyqjhswn7raab"]
+
+[ext_resource type="Script" path="res://Scripts/Item.gd" id="1_4p7yw"]
+[ext_resource type="Texture2D" path="res://Art Aseets/Royal_Sword-Sheet.png" id="2_25ayw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cumxq"]
+atlas = ExtResource("2_25ayw")
+region = Rect2(0, 0, 164, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dxebq"]
+atlas = ExtResource("2_25ayw")
+region = Rect2(0, 0, 167, 160)
+
+[node name="Basic Sword" type="Node2D"]
+script = ExtResource("1_4p7yw")
+item_name = "Unique Sword"
+icon = SubResource("AtlasTexture_cumxq")
+value = 30
+isCraftable = true
+crafting_recipe = {
+"Wood": 1
+}
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_dxebq")

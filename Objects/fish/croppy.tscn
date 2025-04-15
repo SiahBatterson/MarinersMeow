@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://clpdo1uesfhbh"]
+
+[ext_resource type="Script" path="res://Scripts/Item.gd" id="1_o7sn0"]
+[ext_resource type="Texture2D" uid="uid://cir4mimfjvcxn" path="res://Art Aseets/Fish/fish 2-export.png" id="2_hvd5f"]
+
+[node name="Item" type="Node2D"]
+script = ExtResource("1_o7sn0")
+item_name = "croppy"
+icon = ExtResource("2_hvd5f")
+value = 2
+weight = 15
+type = "fish"
+crafting_recipe = {
+"Wood": 1
+}
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(3, 3)
+texture = ExtResource("2_hvd5f")

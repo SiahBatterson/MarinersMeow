@@ -1,0 +1,123 @@
+[gd_scene load_steps=13 format=3 uid="uid://boxikh2lbifk8"]
+
+[ext_resource type="Texture2D" uid="uid://dpyftl8ul22w7" path="res://Art Aseets/UI/UI-Sheet.png" id="1_8eqn0"]
+[ext_resource type="Script" path="res://Objects/Fishing/fishingmanager.gd" id="1_gdwl8"]
+[ext_resource type="Script" path="res://Objects/Fishing/FishingButton.gd" id="2_de5wn"]
+[ext_resource type="AudioStream" uid="uid://bqowq4ctyq7jq" path="res://Art Aseets/Josiahs Pixel Art/old-fishing-reel-fast-rewinding-fishing-line-297884.mp3" id="4_mx8ey"]
+[ext_resource type="Texture2D" uid="uid://dfuu4xnrr8v84" path="res://Art Aseets/UI/BlackBigCircleBoxWithBorder_27x27.png" id="4_skwnn"]
+[ext_resource type="Texture2D" uid="uid://cir4mimfjvcxn" path="res://Art Aseets/Fish/fish 2-export.png" id="5_f8oa8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nx55b"]
+atlas = ExtResource("1_8eqn0")
+region = Rect2(1148.03, 139.94, 193.967, 197.23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u4f8h"]
+atlas = ExtResource("1_8eqn0")
+region = Rect2(2168.81, 174.569, 141.57, 131.014)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hrrl8"]
+atlas = ExtResource("1_8eqn0")
+region = Rect2(4075.15, 158.923, 329.333, 171.487)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l6pgg"]
+atlas = ExtResource("1_8eqn0")
+region = Rect2(3130.06, 220.554, 220.002, 19.2772)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k2dve"]
+atlas = ExtResource("1_8eqn0")
+region = Rect2(2565.39, 142.102, 338.208, 146.41)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4e8ll"]
+atlas = ExtResource("1_8eqn0")
+region = Rect2(4474.08, -6.87181, 559.282, 520.308)
+
+[node name="FishingUI" type="Control"]
+z_index = 1
+layout_mode = 3
+anchor_left = -0.059
+anchor_top = -1.077
+anchor_right = 0.249
+anchor_bottom = -0.44
+offset_left = 115.28
+offset_top = 218.16
+offset_right = 1443.92
+offset_bottom = 610.2
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.7, 0.7)
+script = ExtResource("1_gdwl8")
+
+[node name="Button" type="TextureButton" parent="."]
+visible = false
+z_index = 2
+layout_mode = 0
+offset_left = 154.0
+offset_top = 27.0
+offset_right = 390.0
+offset_bottom = 228.0
+texture_normal = SubResource("AtlasTexture_nx55b")
+script = ExtResource("2_de5wn")
+difficulty = 10.0
+
+[node name="Button" type="TextureButton" parent="Button"]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 34.0
+offset_right = 163.0
+offset_bottom = 165.0
+mouse_filter = 2
+texture_normal = SubResource("AtlasTexture_u4f8h")
+
+[node name="Sound" type="AudioStreamPlayer2D" parent="Button"]
+stream = ExtResource("4_mx8ey")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(1.5, 1.5)
+mouse_filter = 2
+texture = SubResource("AtlasTexture_hrrl8")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+layout_direction = 1
+layout_mode = 0
+offset_left = 68.5714
+offset_top = 624.643
+offset_right = 417.571
+offset_bottom = 797.643
+max_value = 10.0
+value = 10.0
+texture_progress = SubResource("AtlasTexture_l6pgg")
+
+[node name="TextureRect" type="TextureRect" parent="TextureProgressBar"]
+layout_mode = 0
+offset_left = -59.0
+offset_top = -74.0
+offset_right = 279.0
+offset_bottom = 72.0
+scale = Vector2(0.95, 0.95)
+texture = SubResource("AtlasTexture_k2dve")
+
+[node name="FishBackground" type="Sprite2D" parent="."]
+position = Vector2(380.571, 626.786)
+scale = Vector2(5, 5)
+texture = ExtResource("4_skwnn")
+
+[node name="FishIcon" type="Sprite2D" parent="FishBackground"]
+position = Vector2(-0.999994, 0)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("5_f8oa8")
+
+[node name="Background" type="TextureRect" parent="."]
+z_index = -1
+layout_mode = 0
+offset_left = -292.0
+offset_top = -374.0
+offset_right = 267.0
+offset_bottom = 146.0
+scale = Vector2(2, 2)
+mouse_filter = 2
+texture = SubResource("AtlasTexture_4e8ll")
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]

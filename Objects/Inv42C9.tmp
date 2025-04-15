@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://q8lqams268g2"]
+
+[ext_resource type="Script" path="res://Objects/InventorySlot.gd" id="1_s8p5f"]
+
+[node name="InventorySlot" type="TextureButton"]
+z_index = 1
+scale = Vector2(10, 10)
+script = ExtResource("1_s8p5f")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dfl8whmljfs42"]
+
+[ext_resource type="Script" path="res://Scripts/Item.gd" id="1_ngdhs"]
+[ext_resource type="Texture2D" uid="uid://1nuka8ut5kj" path="res://Placeholder/wood_1.png" id="2_infv8"]
+
+[node name="Wood" type="Node2D"]
+script = ExtResource("1_ngdhs")
+item_name = "Wood"
+icon = ExtResource("2_infv8")
+is_stackable = true
+value = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]

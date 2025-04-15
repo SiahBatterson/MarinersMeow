@@ -1,0 +1,21 @@
+{
+  "id": "fishing_tutorial",
+  "completed_flag": "fishing_tutorial_done",
+  "sequence": [
+	{
+	  "speaker": "MayorWhiskers",
+	  "text": "We found a fishing spot! Hit space to stop the boat!",
+	  "action_before": ""
+	},
+	{
+	  "speaker": "MayorWhiskers",
+	  "text": "If you press E you can cast your line.",
+	  "action_before": ""
+	},
+	{
+	  "speaker": "MayorWhiskers",
+	  "text": "Each fish has a unique way of being caught. So be prepared!",
+	  "action_before": ""
+	},
+  ]
+}

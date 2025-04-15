@@ -1,0 +1,21 @@
+{
+  "id": "dockcat_introduction",
+  "completed_flag": "dockcat_introduction_done",
+  "sequence": [
+	{
+	  "speaker": "DockCat",
+	  "text": "Hey there, stranger.",
+	  "action_before": ""
+	},
+	{
+	  "speaker": "DockCat",
+	  "text": "Your ship seems a little worse for wear?",
+	  "action_before": ""
+	},
+	{
+	  "speaker": "DockCat",
+	  "text": "You seem a bit short on wood there, why dont you mosey on down to the shop.",
+	  "action_before": "show:supplies_shop"
+	}
+  ]
+}

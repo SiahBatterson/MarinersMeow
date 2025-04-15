@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://c5xqam7t4i0v0"]
+
+[ext_resource type="PackedScene" uid="uid://g6ijln38fc2g" path="res://Objects/shopkeeper.tscn" id="1_n7qqv"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Shopkeeper" parent="." instance=ExtResource("1_n7qqv")]

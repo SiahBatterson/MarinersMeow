@@ -1,0 +1,38 @@
+{
+  "icon": "portrait.png",
+  "dialog_sets": {
+	"intro": "tutorial.json",
+	"fishingTutorial": "tutorial2.json",
+	"quest_intro": "quest_intro.json",
+	"DockTutorial": "back_to_town.json",
+	"fishing_tutorial": "fishing_tutorial.json"
+  },
+  "friendship_level": 0,
+  "initial_state": {
+	"location": "town",
+	"available": true
+  },
+  "likes": [
+	"fish",
+	"cushions",
+	"milk"
+  ],
+  "dislikes": [
+	"vacuum",
+	"dog"
+  ],
+  "gift_history": [],
+  "assignable_quests": [
+	{
+	  "id": "tutorial",
+	  "required_friendship": 0
+	},
+	{
+	  "id": "whiskers_secret",
+	  "required_friendship": 4
+	}
+  ],
+  "flags": {
+	"met_player": false
+  }
+}

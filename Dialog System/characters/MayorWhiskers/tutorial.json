@@ -1,0 +1,32 @@
+{
+  "id": "whiskers_intro",
+  "completed_flag": "whiskers_intro_done",
+  "sequence": [
+	{
+	  "speaker": "MayorWhiskers",
+	  "text": "Meow. I run this town.",
+	  "action_before": ""
+	},
+	{
+	  "speaker": "MayorWhiskers",
+	  "text": "Let's get you oriented.",
+	  "action_before": ""
+	},
+	{
+	  "speaker": "MayorWhiskers",
+	  "text": "Here, take some wood.",
+	  "action_before": "give_item:Wood 2;give_item:Fiber 1"
+	},
+	{
+	  "speaker": "MayorWhiskers",
+	  "text": "Go craft yourself a right old fishing rod!",
+	  "condition": "has_item:Basic Rod",
+	  "action_before": "show:OpenCraftingButton;show:InventoryButton",
+	},
+	{
+	  "speaker": "MayorWhiskers",
+	  "text": "Alright! Thats about it, lets get out on the water and try to catch a fish!",
+	  "action_before": "show:CastOff;startquest:get_a_fish;hide:CraftingUI",
+	},
+  ]
+}

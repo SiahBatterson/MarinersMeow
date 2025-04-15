@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://h5j2203w37ds"]
+
+[ext_resource type="PackedScene" uid="uid://ir18qvforgfb" path="res://CraftingHUD.tscn" id="1_qehnn"]
+
+[node name="HUD" type="CanvasGroup"]
+
+[node name="CraftingWindow" parent="." instance=ExtResource("1_qehnn")]

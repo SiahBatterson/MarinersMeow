@@ -1,0 +1,207 @@
+[gd_scene load_steps=17 format=3 uid="uid://caisr8niaikvi"]
+
+[ext_resource type="Script" path="res://dock_cat.gd" id="1_gitr2"]
+[ext_resource type="Texture2D" uid="uid://dpyftl8ul22w7" path="res://Art Aseets/UI/UI-Sheet.png" id="2_418ll"]
+[ext_resource type="Texture2D" uid="uid://b75pd4nb4d6ud" path="res://Dialog System/characters/DockCat/portrait.png" id="2_iu08k"]
+[ext_resource type="Texture2D" uid="uid://dk012l6xv6uao" path="res://Art Aseets/UI/BlackMediumCircleBoxWithBorder_27x27.png" id="3_g2tgk"]
+[ext_resource type="Texture2D" uid="uid://bsqfawfr3c2ef" path="res://Art Aseets/UI/ValueRed_120x8.png" id="3_iodbg"]
+[ext_resource type="Texture2D" uid="uid://b5q0ewo8o2tu3" path="res://Art Aseets/Boat/[starter boat].png" id="4_3dfpb"]
+[ext_resource type="Texture2D" uid="uid://2knsrep1xtbe" path="res://Art Aseets/UI/ValueBar_128x16.png" id="5_ru8vi"]
+[ext_resource type="Texture2D" uid="uid://crmd0tapnpwne" path="res://Art Aseets/UI/RectangleBox_96x96.png" id="6_7rhop"]
+[ext_resource type="Texture2D" uid="uid://d15horvg5she" path="res://Art Aseets/UI/ValueBlue_120x8.png" id="6_f43yf"]
+[ext_resource type="Texture2D" uid="uid://muqhsb7b5i8r" path="res://Art Aseets/UI/BlackSmallCircleBox_19x19.png" id="11_8fpor"]
+[ext_resource type="Script" path="res://UpgradesPopulation.gd" id="12_mmx23"]
+[ext_resource type="Texture2D" uid="uid://v1kmkbno6t5y" path="res://Placeholder/2D Pixel Dungeon Asset Pack/items and trap_animation/coin/coin_1.png" id="12_mq6re"]
+[ext_resource type="PackedScene" uid="uid://c461q87oj0q4g" path="res://Objects/BoatUpgrades/repair_boat.tscn" id="13_n6k0w"]
+[ext_resource type="PackedScene" uid="uid://bj47k16b0u050" path="res://Objects/BoatUpgrades/repair_boat_2.tscn" id="14_iq1xy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ctpo"]
+atlas = ExtResource("2_418ll")
+region = Rect2(4501.38, -8.19757, 489.878, 512.663)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yilx6"]
+atlas = ExtResource("2_418ll")
+region = Rect2(4067.6, 168.302, 345.227, 156.922)
+
+[node name="DockCat" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_gitr2")
+profileIcon = ExtResource("2_iu08k")
+damaged_health = ExtResource("3_iodbg")
+regular_health = ExtResource("6_f43yf")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = -1
+layout_mode = 0
+offset_left = 319.0
+offset_top = 67.0
+offset_right = 808.0
+offset_bottom = 579.0
+mouse_filter = 2
+texture = SubResource("AtlasTexture_8ctpo")
+
+[node name="BoatScreen" type="TextureRect" parent="."]
+z_index = -3
+layout_mode = 0
+offset_left = 25.0
+offset_top = 141.0
+offset_right = 514.0
+offset_bottom = 653.0
+scale = Vector2(0.7, 0.7)
+mouse_filter = 2
+texture = SubResource("AtlasTexture_8ctpo")
+
+[node name="TextureRect" type="TextureRect" parent="BoatScreen"]
+layout_mode = 0
+offset_left = 70.0
+offset_top = 52.8571
+offset_right = 429.0
+offset_bottom = 303.857
+texture = ExtResource("4_3dfpb")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="BoatScreen/TextureRect"]
+z_index = 1
+layout_mode = 0
+offset_left = -57.1429
+offset_top = 330.0
+offset_right = 70.8571
+offset_bottom = 370.0
+rotation = -1.5708
+scale = Vector2(2, 2)
+value = 93.0
+texture_over = ExtResource("5_ru8vi")
+texture_progress = ExtResource("6_f43yf")
+texture_progress_offset = Vector2(3.955, 3.885)
+
+[node name="TextureRect3" type="TextureRect" parent="BoatScreen/TextureRect/TextureProgressBar"]
+z_index = -1
+layout_mode = 0
+offset_left = 27.0
+offset_top = 12.0
+offset_right = 372.0
+offset_bottom = 94.0
+scale = Vector2(0.2, 0.2)
+mouse_filter = 2
+texture = SubResource("AtlasTexture_yilx6")
+expand_mode = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="BoatScreen/TextureRect/TextureProgressBar/TextureRect3"]
+layout_mode = 0
+offset_left = 50.7143
+offset_top = 15.0
+offset_right = 460.714
+offset_bottom = 109.0
+scale = Vector2(0.6, 0.6)
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 60
+bbcode_enabled = true
+text = "[center]Boat Integirty"
+fit_content = true
+
+[node name="Profile" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 748.0
+offset_top = 15.0
+offset_right = 935.0
+offset_bottom = 202.0
+mouse_filter = 2
+texture = ExtResource("3_g2tgk")
+
+[node name="profilePhoto" type="TextureRect" parent="Profile"]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 40.0
+offset_right = 191.0
+offset_bottom = 190.0
+scale = Vector2(0.7, 0.7)
+mouse_filter = 2
+texture = ExtResource("2_iu08k")
+stretch_mode = 4
+
+[node name="TextureRect" type="TextureRect" parent="Profile"]
+z_index = -1
+layout_mode = 0
+offset_left = -356.0
+offset_top = 538.0
+offset_right = -24.0
+offset_bottom = 623.0
+mouse_filter = 2
+texture = ExtResource("5_ru8vi")
+
+[node name="TextureRect" type="TextureRect" parent="Profile/TextureRect"]
+z_index = -1
+layout_mode = 0
+offset_left = -22.0
+offset_right = 359.0
+offset_bottom = 92.0
+mouse_filter = 2
+texture = ExtResource("6_7rhop")
+expand_mode = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Profile/TextureRect"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 23.0
+offset_right = 1543.0
+offset_bottom = 272.0
+scale = Vector2(0.2, 0.2)
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 65
+bbcode_enabled = true
+text = "HIHIHIHIHIIHIHIHIHIHIHIHIHIHIHIHIHI"
+fit_content = true
+scroll_active = false
+
+[node name="CoinCount" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 749.0
+offset_top = 526.0
+offset_right = 789.0
+offset_bottom = 566.0
+scale = Vector2(1.7, 1.7)
+texture = ExtResource("11_8fpor")
+
+[node name="CoinCount2" type="TextureRect" parent="CoinCount"]
+modulate = Color(1, 1, 1, 0.792157)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("12_mq6re")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CoinCount"]
+layout_mode = 0
+offset_left = 15.2941
+offset_top = 7.05883
+offset_right = 123.294
+offset_bottom = 95.0588
+scale = Vector2(0.3, 0.3)
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.0941176)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/normal_font_size = 60
+text = "1"
+
+[node name="ScrollUpgrades" type="ScrollContainer" parent="."]
+z_index = 2
+layout_mode = 0
+offset_left = 366.0
+offset_top = 107.0
+offset_right = 1033.0
+offset_bottom = 840.0
+scale = Vector2(0.6, 0.6)
+horizontal_scroll_mode = 0
+script = ExtResource("12_mmx23")
+BoatUpgrades = [ExtResource("13_n6k0w"), ExtResource("14_iq1xy")]
+
+[node name="Upgrades" type="GridContainer" parent="ScrollUpgrades"]
+z_index = 2
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/v_separation = 10

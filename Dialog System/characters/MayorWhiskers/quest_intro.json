@@ -1,0 +1,21 @@
+{
+  "id": "quest_intro",
+  "completed_flag": "quest_intro_done",
+  "sequence": [
+	{
+	  "speaker": "MayorWhiskers",
+	  "text": "I assigned you a quest by the way!",
+	  "action_before": ""
+	},
+	{
+	  "speaker": "MayorWhiskers",
+	  "text": "You can view quests by hitting Q",
+	  "action_before": ""
+	},
+	{
+	  "speaker": "MayorWhiskers",
+	  "text": "Anyway lets look for a fish! You can see them swimming under the water.",
+	  "action_before": ""
+	},
+  ]
+}

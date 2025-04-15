@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bn33m65oe7acx"]
+
+[ext_resource type="Script" path="res://Scripts/Item.gd" id="1_nilo2"]
+[ext_resource type="Texture2D" uid="uid://pnsp8kf56c7i" path="res://Art Aseets/Josiahs Pixel Art/slavagedfiber.png" id="2_uesl6"]
+
+[node name="Fiber" type="Node2D"]
+script = ExtResource("1_nilo2")
+item_name = "Fiber"
+icon = ExtResource("2_uesl6")
+is_stackable = true
+value = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
